@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  trigger-maven-ci-cd:
+  trigger-main:
     runs-on: ubuntu-latest
     steps:
       - name: Call Maven CI/CD Workflow
