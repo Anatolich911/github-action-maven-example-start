@@ -1,4 +1,7 @@
-publish-job:
+name: Maven CI/CD
+
+on:
+  publish-job:
       runs-on: ubuntu-latest
       needs: [build_and_test]
       steps:
