@@ -13,18 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Maven CI/CD Workflow
-        uses: actions/github-script@v3
+        uses: actions/checkout@v4
+
+      - name: add 
+        uses: ./.github/workflow/main.yml
         with:
-          script: |
-            const inputs = {
-              'aws-account': '739153323366', 
-              'package-type': 'war'
-            };
-            github.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'main.yml',
-              ref: context.ref,
-              inputs: inputs
-            });
+          aws-account: '739153323366'
+          
+       
 
