@@ -1,12 +1,7 @@
 name: Test Maven CI/CD
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
   trigger-maven-ci-cd:
@@ -17,7 +12,7 @@ jobs:
         with:
           script: |
             const inputs = {
-              'aws-account': 'your-aws-account-id', // Replace with your AWS account ID
+              'aws-account': '739153323366', 
               'package-type': 'war'
             };
             github.actions.createWorkflowDispatch({
