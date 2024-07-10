@@ -1,8 +1,15 @@
 name: Maven CI/CD
 
 on:
- push:
-    branches: [ master ]
+ workflow_call:
+   inputs:
+     aws-account:
+       required: true
+       type: string
+     package-type:
+       required: false
+       type: string
+       default: 'war'
 
 jobs:
   build_and_test:
