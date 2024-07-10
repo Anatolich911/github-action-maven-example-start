@@ -1,0 +1,30 @@
+name: Test Maven CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  trigger-maven-ci-cd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Maven CI/CD Workflow
+        uses: actions/github-script@v3
+        with:
+          script: |
+            const inputs = {
+              'aws-account': 'your-aws-account-id', // Replace with your AWS account ID
+              'package-type': 'war'
+            };
+            github.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'maven-ci-cd.yml',
+              ref: context.ref,
+              inputs: inputs
+            });
+
