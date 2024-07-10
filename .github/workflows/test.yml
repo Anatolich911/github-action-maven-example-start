@@ -18,7 +18,7 @@ jobs:
             github.actions.createWorkflowDispatch({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              workflow_id: 'maven-ci-cd.yml',
+              workflow_id: 'main.yml',
               ref: context.ref,
               inputs: inputs
             });
